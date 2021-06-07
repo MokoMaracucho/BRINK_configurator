@@ -21,6 +21,8 @@ export class Page001Service {
 
   private light: BABYLON.Light;
 
+  private Samsung_SMART_TV;
+
   private axis_X;
   private axis_X_MATERIAL: BABYLON.StandardMaterial;
   private axis_Y;
@@ -49,7 +51,81 @@ export class Page001Service {
     this.light = new BABYLON.HemisphericLight('light', new BABYLON.Vector3(0, 1, 0), this.scene);
     this.light.intensity = 1;
 
-    BABYLON.SceneLoader.ImportMeshAsync("test", "../../assets/glb/page-001/", "test.glb", this.scene).then((result) => {
+    var material = new BABYLON.StandardMaterial("material", this.scene);
+    material.diffuseColor = new BABYLON.Color3(1, 0, 0);
+
+    BABYLON.SceneLoader.ImportMesh("", "../../assets/gltf/page-001/", "Samsung_SMART_TV.gltf", this.scene, function (meshes) {
+      const Key_power = meshes[1];
+      Key_power.material = material;
+
+      const Panel_front_1 = meshes[2];
+      Panel_front_1.material = material;
+
+      const Panel_front_2 = meshes[3];
+      Panel_front_2.material = material;
+
+      const Remote_Steel_ward = meshes[4];
+      Remote_Steel_ward.material = material;
+
+      const Phone_opas = meshes[5];
+      Phone_opas.material = material;
+
+      const Plastik_glanec = meshes[6];
+      Plastik_glanec.material = material;
+
+      const Panel_back = meshes[7];
+      Panel_back.material = material;
+
+      const Chrom_Kant = meshes[8];
+      Chrom_Kant.material = material;
+
+      const Remote_screen = meshes[9];
+      Remote_screen.material = material;
+
+      const Chrom_rem = meshes[10];
+      Chrom_rem.material = material;
+
+      const Back_label = meshes[11];
+      Back_label.material = material;
+
+      const Screen_off = meshes[12];
+      Screen_off.material = material;
+
+      const Chrom = meshes[13];
+      Chrom.material = material;
+
+      const Metall_strip = meshes[14];
+      Metall_strip.material = material;
+
+      const Glass_black = meshes[15];
+      Glass_black.material = material;
+
+      const Metall_dark = meshes[16];
+      Metall_dark.material = material;
+
+      const Gold = meshes[17];
+      Gold.material = material;
+
+      const Steel = meshes[18];
+      Steel.material = material;
+
+      const Plastic_black = meshes[19];
+      Plastic_black.material = material;
+
+      const Plastic_white = meshes[20];
+      Plastic_white.material = material;
+
+      const Plastic_yellow = meshes[21];
+      Plastic_yellow.material = material;
+
+      const Luminium = meshes[22];
+      Luminium.material = material;
+
+      const Plastic_black_gloss = meshes[23];
+      Plastic_black_gloss.material = material;
+
+      const Plastic_black_key = meshes[24];
+      Plastic_black_key.material = material;
     });
 
     // AXIS
